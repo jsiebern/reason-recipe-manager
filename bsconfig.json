@@ -1,0 +1,33 @@
+{
+    "name": "reason-recipe-manager",
+    "reason": {
+        "react-jsx": 3
+    },
+    "sources": [
+        {
+            "dir": "src",
+            "subdirs": true
+        }
+    ],
+    "package-specs": [
+        {
+            "module": "es6-global",
+            "in-source": true
+        }
+    ],
+    "suffix": ".bs.js",
+    "namespace": false,
+    "bsc-flags": [
+        "-bs-super-errors",
+        "-bs-g"
+    ],
+    "ppx-flags": [],
+    "bs-dependencies": [
+        "reason-react",
+        "bs-emotion",
+        "@ahrefs/bs-atdgen-codec-runtime",
+        "@aantron/repromise",
+        "bs-fetch"
+    ],
+    "refmt": 3
+}

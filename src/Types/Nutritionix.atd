@@ -1,0 +1,53 @@
+type autoCompleteMain = {
+    common: autoCompleteFood list <ocaml repr="array">;
+}
+
+type autoCompleteFood = {
+    foodName <json name="food_name">: string;
+    locale: string;
+    servingQty <json name="serving_qty">: float;
+    servingUnit <json name="serving_unit">: string;
+    tagId <json name="tag_id">: string;
+    tagName <json name="tag_name">: string;
+    photo: foodPhoto;
+}
+
+type foodPhoto = {
+    thumb: string;
+}
+
+type nutrientsRequest = {
+    ?lineDelimited <json name="line_delimited">: bool option;
+    query: string;
+    ?useBrandedFoods <json name="use_branded_foods">: bool option;
+    ?useRawFoods <json name="use_raw_foods">: bool option;
+}
+
+type nutriendsResponse = {
+    foods: nutrientFood list;
+}
+
+type nutrientFood = {
+    foodName <json name="food_name">: string;
+    ?metadata: nutrientFoodMetadata option;
+    ndb_no: int;
+    nf_calories: float;
+    nf_cholesterol: float;
+    nf_dietary_fiber: float;
+    nf_p: float;
+    nf_potassium: float;
+    nf_protein: float;
+    nf_saturated_fat: float;
+    nf_sodium: float;
+    nf_sugars: float;
+    nf_total_carbohydrate: float;
+    nf_total_fat: float;
+    ?photo: foodPhoto option;
+    servingQty <json name="serving_qty">: int;
+    servingUnit <json name="serving_unit">: string;
+    servingWeightGrams <json name="serving_weight_grams">: float;
+}
+
+type nutrientFoodMetadata = {
+    isRawFood <json name="is_raw_food">: bool option;
+}
