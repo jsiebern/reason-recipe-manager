@@ -1,0 +1,73 @@
+{
+  "name": "reason-recipe-manager-server",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "ReasonRecipeManagerServerApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "utils": {
+      "namespace": "SomeUtils",
+      "name": "reason-recipe-manager-server.utils",
+      "require": [
+        "digestif.ocaml",
+        "console.lib",
+        "cohttp-lwt-unix",
+        "graphql-lwt",
+        "graphql-cohttp",
+        "lwt",
+        "yojson",
+        "mongo",
+        "bson"
+      ]
+    },
+    "test": {
+      "require": [
+        "reason-recipe-manager-server.lib"
+      ],
+      "main": "TestReasonRecipeManagerServer",
+      "name": "TestReasonRecipeManagerServer.exe"
+    },
+    "library": {
+      "name": "reason-recipe-manager-server.lib",
+      "namespace": "ReasonRecipeManagerServer"
+    },
+    "executable": {
+      "require": [
+        "reason-recipe-manager-server.lib",
+        "reason-recipe-manager-server.utils",
+        "console.lib"
+      ],
+      "main": "ReasonRecipeManagerServerApp",
+      "name": "ReasonRecipeManagerServerApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestReasonRecipeManagerServer.exe"
+  },
+  "dependencies": {
+    "@esy-ocaml/reason": "*",
+    "@opam/bson": "0.89.3",
+    "@opam/cohttp-lwt-unix": "2.0.0",
+    "@opam/digestif": "0.7.1",
+    "@opam/dune": ">=1.6.0",
+    "@opam/graphql-cohttp": "0.12.1",
+    "@opam/graphql-lwt": "0.9.0",
+    "@opam/lwt": "4.2.1",
+    "@opam/mongo": "0.67.2",
+    "@opam/yojson": "1.7.0",
+    "@reason-native/console": "^0.1.0",
+    "ocaml": "*",
+    "pesy": "*",
+    "refmterr": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  }
+}
