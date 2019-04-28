@@ -3,6 +3,8 @@
 import * as Block from "../../node_modules/bs-platform/lib/es6/block.js";
 import * as Atdgen_codec_runtime from "../../node_modules/@ahrefs/bs-atdgen-codec-runtime/src/atdgen_codec_runtime.bs.js";
 
+Atdgen_codec_runtime.Decode[/* option_as_constr */25](Atdgen_codec_runtime.Decode[/* string */7]);
+
 var partial_arg = Atdgen_codec_runtime.Encode[/* bool */6];
 
 var partial_arg$1 = Atdgen_codec_runtime.Encode[/* option_as_constr */23];
@@ -22,7 +24,10 @@ var write_nutrientsRequest = Atdgen_codec_runtime.Encode[/* make */0]((function 
                               Atdgen_codec_runtime.Encode[/* field_o */13](undefined, Atdgen_codec_runtime.Encode[/* bool */6], "use_branded_foods", t[/* useBrandedFoods */2]),
                               /* :: */Block.simpleVariant("::", [
                                   Atdgen_codec_runtime.Encode[/* field_o */13](undefined, Atdgen_codec_runtime.Encode[/* bool */6], "use_raw_foods", t[/* useRawFoods */3]),
-                                  /* [] */0
+                                  /* :: */Block.simpleVariant("::", [
+                                      Atdgen_codec_runtime.Encode[/* field_o */13](undefined, Atdgen_codec_runtime.Encode[/* string */3], "locale", t[/* locale */4]),
+                                      /* [] */0
+                                    ])
                                 ])
                             ])
                         ])
@@ -36,14 +41,16 @@ var read_nutrientsRequest = Atdgen_codec_runtime.Decode[/* make */0]((function (
                   "lineDelimited",
                   "query",
                   "useBrandedFoods",
-                  "useRawFoods"
+                  "useRawFoods",
+                  "locale"
                 ], [
                   Atdgen_codec_runtime.Decode[/* decode */1](Atdgen_codec_runtime.Decode[/* fieldOptional */17]("line_delimited", Atdgen_codec_runtime.Decode[/* bool */3]), json),
                   Atdgen_codec_runtime.Decode[/* decode */1]((function (param) {
                           return partial_arg$1("query", partial_arg, param);
                         }), json),
                   Atdgen_codec_runtime.Decode[/* decode */1](Atdgen_codec_runtime.Decode[/* fieldOptional */17]("use_branded_foods", Atdgen_codec_runtime.Decode[/* bool */3]), json),
-                  Atdgen_codec_runtime.Decode[/* decode */1](Atdgen_codec_runtime.Decode[/* fieldOptional */17]("use_raw_foods", Atdgen_codec_runtime.Decode[/* bool */3]), json)
+                  Atdgen_codec_runtime.Decode[/* decode */1](Atdgen_codec_runtime.Decode[/* fieldOptional */17]("use_raw_foods", Atdgen_codec_runtime.Decode[/* bool */3]), json),
+                  Atdgen_codec_runtime.Decode[/* decode */1](Atdgen_codec_runtime.Decode[/* fieldOptional */17]("locale", Atdgen_codec_runtime.Decode[/* string */7]), json)
                 ]);
       }));
 
@@ -246,19 +253,19 @@ var read_nutrientFood = Atdgen_codec_runtime.Decode[/* make */0]((function (json
 
 var partial_arg$2 = Atdgen_codec_runtime.Encode[/* list */8];
 
-function write__3(param) {
+function write__4(param) {
   return partial_arg$2(write_nutrientFood, param);
 }
 
 var partial_arg$3 = Atdgen_codec_runtime.Decode[/* list */11];
 
-function read__3(param) {
+function read__4(param) {
   return partial_arg$3(read_nutrientFood, param);
 }
 
 var write_nutriendsResponse = Atdgen_codec_runtime.Encode[/* make */0]((function (t) {
         return Atdgen_codec_runtime.Encode[/* obj */14](/* :: */Block.simpleVariant("::", [
-                      Atdgen_codec_runtime.Encode[/* field */12](undefined, write__3, "foods", t[/* foods */0]),
+                      Atdgen_codec_runtime.Encode[/* field */12](undefined, write__4, "foods", t[/* foods */0]),
                       /* [] */0
                     ]));
       }));
@@ -266,7 +273,7 @@ var write_nutriendsResponse = Atdgen_codec_runtime.Encode[/* make */0]((function
 var read_nutriendsResponse = Atdgen_codec_runtime.Decode[/* make */0]((function (json) {
         var partial_arg = Atdgen_codec_runtime.Decode[/* field */15];
         return /* record */Block.record(["foods"], [Atdgen_codec_runtime.Decode[/* decode */1]((function (param) {
-                          return partial_arg("foods", read__3, param);
+                          return partial_arg("foods", read__4, param);
                         }), json)]);
       }));
 
@@ -385,4 +392,4 @@ export {
   write_autoCompleteMain ,
   
 }
-/* read__2 Not a pure module */
+/*  Not a pure module */

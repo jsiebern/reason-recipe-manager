@@ -53,7 +53,7 @@ let make = () => {
     () => {
       switch (state.typing) {
       | Fetching when state.value->Js.String.length >= 3 =>
-        Nutritionix.fetchAutoComplete(state.value, res =>
+        NutritionixApi.fetchAutoComplete(state.value, res =>
           switch (res) {
           | Ok(res) => dispatch(SetAutoComplete(Some(res)))
           | Error(err) => Js.log(err)

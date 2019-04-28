@@ -21,13 +21,16 @@
         "-bs-super-errors",
         "-bs-g"
     ],
-    "ppx-flags": [],
+    "ppx-flags": [
+        "@jsiebern/bs-material-ui-ppx/ppx"
+    ],
     "bs-dependencies": [
         "reason-react",
         "bs-emotion",
         "@ahrefs/bs-atdgen-codec-runtime",
         "@aantron/repromise",
-        "bs-fetch"
+        "bs-fetch",
+        "@jsiebern/bs-material-ui"
     ],
     "refmt": 3
 }

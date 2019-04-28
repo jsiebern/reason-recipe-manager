@@ -5,7 +5,8 @@ type nutrientsRequest = Nutritionix_t.nutrientsRequest = {
   lineDelimited: bool option;
   query: string;
   useBrandedFoods: bool option;
-  useRawFoods: bool option
+  useRawFoods: bool option;
+  locale: string option
 }
 
 type nutrientFoodMetadata = Nutritionix_t.nutrientFoodMetadata = {
@@ -53,6 +54,16 @@ type autoCompleteMain = Nutritionix_t.autoCompleteMain = {
   common: autoCompleteFood Atdgen_runtime.Util.ocaml_array
 }
 
+let write__3 = (
+  Atdgen_codec_runtime.Encode.option_as_constr (
+    Atdgen_codec_runtime.Encode.string
+  )
+)
+let read__3 = (
+  Atdgen_codec_runtime.Decode.option_as_constr (
+    Atdgen_codec_runtime.Decode.string
+  )
+)
 let write__2 = (
   Atdgen_codec_runtime.Encode.option_as_constr (
     Atdgen_codec_runtime.Encode.bool
@@ -95,6 +106,13 @@ let write_nutrientsRequest = (
             )
           ~name:"use_raw_foods"
           t.useRawFoods
+        ;
+          Atdgen_codec_runtime.Encode.field_o
+            (
+            Atdgen_codec_runtime.Encode.string
+            )
+          ~name:"locale"
+          t.locale
       ]
     )
   )
@@ -126,6 +144,12 @@ let read_nutrientsRequest = (
             (
               Atdgen_codec_runtime.Decode.bool
               |> Atdgen_codec_runtime.Decode.fieldOptional "use_raw_foods"
+            ) json;
+          locale =
+            Atdgen_codec_runtime.Decode.decode
+            (
+              Atdgen_codec_runtime.Decode.string
+              |> Atdgen_codec_runtime.Decode.fieldOptional "locale"
             ) json;
       } : nutrientsRequest)
     )
@@ -189,22 +213,22 @@ let read_foodPhoto = (
     )
   )
 )
-let write__5 = (
+let write__6 = (
   Atdgen_codec_runtime.Encode.option_as_constr (
     write_foodPhoto
   )
 )
-let read__5 = (
+let read__6 = (
   Atdgen_codec_runtime.Decode.option_as_constr (
     read_foodPhoto
   )
 )
-let write__4 = (
+let write__5 = (
   Atdgen_codec_runtime.Encode.option_as_constr (
     write_nutrientFoodMetadata
   )
 )
-let read__4 = (
+let read__5 = (
   Atdgen_codec_runtime.Decode.option_as_constr (
     read_nutrientFoodMetadata
   )
@@ -459,12 +483,12 @@ let read_nutrientFood = (
     )
   )
 )
-let write__3 = (
+let write__4 = (
   Atdgen_codec_runtime.Encode.list (
     write_nutrientFood
   )
 )
-let read__3 = (
+let read__4 = (
   Atdgen_codec_runtime.Decode.list (
     read_nutrientFood
   )
@@ -476,7 +500,7 @@ let write_nutriendsResponse = (
       [
           Atdgen_codec_runtime.Encode.field
             (
-            write__3
+            write__4
             )
           ~name:"foods"
           t.foods
@@ -491,7 +515,7 @@ let read_nutriendsResponse = (
           foods =
             Atdgen_codec_runtime.Decode.decode
             (
-              read__3
+              read__4
               |> Atdgen_codec_runtime.Decode.field "foods"
             ) json;
       } : nutriendsResponse)

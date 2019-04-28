@@ -6,7 +6,7 @@ import * as React from "react";
 import * as Belt_List from "../../node_modules/bs-platform/lib/es6/belt_List.js";
 import * as Belt_Array from "../../node_modules/bs-platform/lib/es6/belt_Array.js";
 import * as Belt_Option from "../../node_modules/bs-platform/lib/es6/belt_Option.js";
-import * as Nutritionix from "./Nutritionix.bs.js";
+import * as NutritionixApi from "../Helpers/NutritionixApi.bs.js";
 
 function NutrientList(Props) {
   var match = React.useState((function () {
@@ -26,16 +26,18 @@ function NutrientList(Props) {
                       if (match !== 13) {
                         return /* () */0;
                       } else {
-                        Nutritionix.fetchNutrients(/* record */Block.record([
+                        NutritionixApi.fetchNutrients(/* record */Block.record([
                                 "lineDelimited",
                                 "query",
                                 "useBrandedFoods",
-                                "useRawFoods"
+                                "useRawFoods",
+                                "locale"
                               ], [
                                 undefined,
                                 value,
                                 false,
-                                false
+                                false,
+                                "de_DE"
                               ]), (function (res) {
                                 if (res.tag) {
                                   console.log(res[0]);

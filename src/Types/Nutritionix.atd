@@ -21,6 +21,7 @@ type nutrientsRequest = {
     query: string;
     ?useBrandedFoods <json name="use_branded_foods">: bool option;
     ?useRawFoods <json name="use_raw_foods">: bool option;
+    ?locale: string option;
 }
 
 type nutriendsResponse = {

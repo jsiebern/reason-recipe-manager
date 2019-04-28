@@ -5,7 +5,8 @@ type nutrientsRequest = Nutritionix_t.nutrientsRequest = {
   lineDelimited: bool option;
   query: string;
   useBrandedFoods: bool option;
-  useRawFoods: bool option
+  useRawFoods: bool option;
+  locale: string option
 }
 
 type nutrientFoodMetadata = Nutritionix_t.nutrientFoodMetadata = {

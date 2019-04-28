@@ -5,7 +5,8 @@ type nutrientsRequest = {
   lineDelimited: bool option;
   query: string;
   useBrandedFoods: bool option;
-  useRawFoods: bool option
+  useRawFoods: bool option;
+  locale: string option
 }
 
 type nutrientFoodMetadata = { isRawFood: bool option }

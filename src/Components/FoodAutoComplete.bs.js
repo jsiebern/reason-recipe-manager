@@ -7,7 +7,7 @@ import * as Emotion from "../../node_modules/bs-emotion/src/Emotion.bs.js";
 import * as Helpers from "../Helpers.bs.js";
 import * as Belt_Array from "../../node_modules/bs-platform/lib/es6/belt_Array.js";
 import * as Caml_option from "../../node_modules/bs-platform/lib/es6/caml_option.js";
-import * as Nutritionix from "./Nutritionix.bs.js";
+import * as NutritionixApi from "../Helpers/NutritionixApi.bs.js";
 
 var list = Emotion.css(undefined, /* :: */Block.simpleVariant("::", [
         Emotion.listStyle(/* none */-922086728, /* inside */501235708, /* none */-922086728),
@@ -102,7 +102,7 @@ function FoodAutoComplete(Props) {
           var match = state[/* typing */0];
           if (match >= 2) {
             if (state[/* value */1].length >= 3) {
-              Nutritionix.fetchAutoComplete(state[/* value */1], (function (res) {
+              NutritionixApi.fetchAutoComplete(state[/* value */1], (function (res) {
                       if (res.tag) {
                         console.log(res[0]);
                         return /* () */0;

@@ -10,12 +10,13 @@ let make = () => {
       onKeyUp={e =>
         switch (e->ReactEvent.Keyboard.keyCode) {
         | 13 =>
-          Nutritionix.fetchNutrients(
+          NutritionixApi.fetchNutrients(
             {
               lineDelimited: None,
               query: value,
               useBrandedFoods: Some(false),
               useRawFoods: Some(false),
+              locale: Some("de_DE"),
             },
             res =>
             switch (res) {

@@ -3,3 +3,4 @@ lib
 .merlin
 dist
 .cache
+server

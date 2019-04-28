@@ -14,6 +14,9 @@
   "dependencies": {
     "@aantron/repromise": "^0.6.0",
     "@ahrefs/bs-atdgen-codec-runtime": "^1.2.0",
+    "@jsiebern/bs-material-ui": "^1.1.0-hooks.3",
+    "@jsiebern/bs-material-ui-ppx": "^1.0.4",
+    "@material-ui/core": "^3.9.3",
     "bs-emotion": "^0.1.1",
     "bs-fetch": "^0.3.1",
     "bs-platform": "^5.0.3",
