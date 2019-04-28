@@ -7,5 +7,5 @@
    (name SomeUtils)
    ; Other libraries list this name in their package.json 'require' field to use this library.
    (public_name reason-recipe-manager-server.utils)
-   (libraries  digestif.ocaml console.lib cohttp-lwt-unix graphql-lwt graphql-cohttp lwt yojson mongo bson )
+   (libraries  digestif.ocaml console.lib cohttp-lwt-unix graphql-lwt graphql-cohttp lwt yojson )
 )
